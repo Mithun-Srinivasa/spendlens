@@ -5,6 +5,7 @@
 # Personal dev files - not for public viewing
 MASTER_TUTORIAL.md
 AI_README.md
+test.csv
 
 # Next.js
 .next/
@@ -12,6 +13,12 @@ out/
 
 # Dependencies
 node_modules/
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
+# Temp / debug files
+build_output.txt
 
 # Misc
 .DS_Store

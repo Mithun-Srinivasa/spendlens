@@ -173,8 +173,8 @@ export default function TransactionTable({ transactions }: Props) {
                                 setPage(1);
                             }}
                             className={`px-3 py-2 text-xs font-medium capitalize transition-colors cursor-pointer ${typeFilter === t
-                                    ? "bg-surface-alt text-primary"
-                                    : "bg-surface text-muted hover:text-primary"
+                                ? "bg-surface-alt text-primary"
+                                : "bg-surface text-muted hover:text-primary"
                                 }`}
                         >
                             {t}
