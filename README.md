@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SpendLens
+
+**AI-powered expense intelligence for Indian bank statements.**
+
+Upload a CSV or PDF statement from HDFC, ICICI, SBI, Axis, or Kotak — and get a full dashboard in seconds: category breakdowns, monthly trends, anomaly insights, and a natural language chat interface.
+
+> 🔒 Your data never leaves your session. Nothing is stored, logged, or sent to any third-party except Google Gemini for analysis.
+
+---
+
+## Live Demo
+
+[spendlens.vercel.app](https://spendlens.vercel.app) — or embedded in [Mithun's portfolio](https://mithun-portfolio.vercel.app)
+
+---
+
+## Features
+
+- **Drag-and-drop upload** — CSV or PDF, up to 5MB
+- **AI parsing** — Gemini 1.5 Flash categorizes every transaction automatically
+- **Spending pie chart** — Category breakdown with warm editorial color palette
+- **Monthly bar chart** — Spent vs credited, month by month
+- **AI Insights** — Anomaly detection, pattern recognition, savings tips
+- **Transaction table** — Sort by date/amount, filter by category, search, paginated
+- **Natural language chat** — Ask "How much did I spend on Swiggy?" and get an answer
+- **Export** — Download filtered transactions as CSV
+- **Zero persistence** — Everything lives in `sessionStorage` only
+
+---
+
+## Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| AI | Google Gemini API (`gemini-1.5-flash`) |
+| Charts | Recharts |
+| Upload | react-dropzone |
+| Icons | lucide-react |
+| PDF | pdf-parse |
+| Deployment | Vercel |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- A [Google Gemini API key](https://aistudio.google.com/) (free tier works)
+
+### Setup
+
+```bash
+git clone https://github.com/mithun-srinivasa/spendlens
+cd spendlens
+npm install
+cp .env.example .env.local
+```
+
+Add your key to `.env.local`:
+```
+GEMINI_API_KEY=your_key_here
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+| Variable | Required | Description |
+|---|---|---|
+| `GEMINI_API_KEY` | ✅ | Google Gemini API key from AI Studio |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Supported Bank Formats
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Works best with CSV exports from:
+- **HDFC** — Account Statement CSV
+- **ICICI** — Detailed Statement CSV
+- **SBI** — Account Statement download
+- **Axis** — Transaction History CSV
+- **Kotak** — e-Statement CSV
 
-## Deploy on Vercel
+PDF support is available but CSV exports give better results.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Fonts, metadata
+│   ├── page.tsx            # Landing / upload page
+│   ├── dashboard/
+│   │   └── page.tsx        # Main dashboard
+│   └── api/
+│       ├── analyze/route.ts  # Gemini analysis endpoint
+│       └── chat/route.ts     # Chat Q&A endpoint
+├── components/             # All UI components
+├── lib/                    # parseCSV, parsePDF, gemini client
+└── types/                  # Shared TypeScript types
+```
+
+---
+
+## Privacy
+
+- ❌ No database
+- ❌ No authentication  
+- ❌ No analytics that capture file content
+- ✅ Files are processed in-memory in a single API request
+- ✅ Results stored only in the browser's `sessionStorage`
+- ✅ Session is cleared when you navigate to a new analysis
+
+---
+
+## License
+
+MIT — free to use, fork, and adapt.
+
+Built by [Mithun Srinivasa](https://mithun-portfolio.vercel.app)
