@@ -14,12 +14,12 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "X-Frame-Options",
-            value: "ALLOW-FROM https://mithun-portfolio.vercel.app",
+            value: "ALLOW-FROM https://mithun-srinivasa.github.io",
           },
           {
             key: "Content-Security-Policy",
             value:
-              "frame-ancestors 'self' https://mithun-portfolio.vercel.app",
+              "frame-ancestors 'self' https://mithun-srinivasa.github.io",
           },
         ],
       },

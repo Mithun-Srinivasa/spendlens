@@ -16,7 +16,7 @@ function getClient(): GoogleGenerativeAI {
 }
 
 /**
- * Returns a configured Gemini 1.5 Flash model instance.
+ * Returns a configured Gemini 2.5 Flash Lite model instance.
  * This function is safe to call multiple times — the client is a singleton.
  */
 export function getGeminiModel() {

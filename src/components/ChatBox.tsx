@@ -20,14 +20,15 @@ export default function ChatBox({ summary, categoryBreakdown }: Props) {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const bottomRef = useRef<HTMLDivElement>(null);
+    const messagesRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
     // Context string sent with each question
     const contextString = JSON.stringify({ summary, categoryBreakdown });
 
     useEffect(() => {
-        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+        const el = messagesRef.current;
+        if (el) el.scrollTop = el.scrollHeight;
     }, [messages, loading]);
 
     async function sendMessage(text: string) {
@@ -87,7 +88,7 @@ export default function ChatBox({ summary, categoryBreakdown }: Props) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: 320 }}>
+            <div ref={messagesRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: 320 }}>
                 {messages.length === 0 && !loading && (
                     <div className="pt-2 pb-1">
                         <p className="text-muted text-xs mb-3">
@@ -97,6 +98,7 @@ export default function ChatBox({ summary, categoryBreakdown }: Props) {
                             {STARTER_PROMPTS.map((prompt) => (
                                 <button
                                     key={prompt}
+                                    type="button"
                                     onClick={() => sendMessage(prompt)}
                                     className="text-left rounded-[8px] border border-border bg-surface-alt px-3 py-2 text-xs text-muted hover:text-primary hover:border-border-light transition-all cursor-pointer"
                                 >
@@ -153,7 +155,7 @@ export default function ChatBox({ summary, categoryBreakdown }: Props) {
                     </div>
                 )}
 
-                <div ref={bottomRef} />
+
             </div>
 
             {/* Input */}
@@ -174,6 +176,7 @@ export default function ChatBox({ summary, categoryBreakdown }: Props) {
                         className="flex-1 rounded-[8px] bg-surface-alt border border-border px-3 py-2 text-sm text-primary placeholder:text-muted focus:outline-none focus:border-border-light transition-colors disabled:opacity-50"
                     />
                     <button
+                        type="button"
                         onClick={() => sendMessage(input)}
                         disabled={!input.trim() || loading}
                         className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[8px] bg-accent text-background transition-all hover:bg-accent-dim disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"

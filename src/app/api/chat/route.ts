@@ -3,7 +3,7 @@ import { getGeminiModel } from "@/lib/gemini";
 
 const SYSTEM_PROMPT = `You are a helpful personal finance assistant for SpendLens. The user has already analyzed their Indian bank statement. Answer their question based on the financial data provided as context. 
 
-Keep answers to 2-3 sentences maximum. Be conversational and plain English. Do not use markdown, bullet points, or asterisks. Be specific with amounts where you can figure them out from the data. If the answer isn't in the data, say so briefly.`;
+Keep answers to 2-3 sentences maximum. Be conversational and plain English. Do not use markdown, bullet points, or asterisks. Be specific with amounts where you can figure them out from the data. If the answer isn't in the data, say so briefly. Always use the ₹ symbol (not "Rs." or "INR") when referring to any monetary amounts.`;
 
 // Simple in-memory rate limit for chat (per-IP, 30 req/min)
 const chatRateLimit = new Map<string, { count: number; resetAt: number }>();
