@@ -10,7 +10,7 @@ Upload a CSV or PDF statement from HDFC, ICICI, SBI, Axis, or Kotak — and get 
 
 ## Live Demo
 
-[spendlens.vercel.app](https://spendlens.vercel.app) — or embedded in [Mithun's portfolio](https://mithun-srinivasa.github.io)
+[spendlens.vercel.app](https://spendlens-sigma.vercel.app/) — or embedded in [Mithun's portfolio](https://mithun-srinivasa.github.io)
 
 ---
 
