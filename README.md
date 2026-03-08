@@ -4,13 +4,13 @@
 
 Upload a CSV or PDF statement from HDFC, ICICI, SBI, Axis, or Kotak — and get a full dashboard in seconds: category breakdowns, monthly trends, anomaly insights, and a natural language chat interface.
 
-> 🔒 Your data never leaves your session. Nothing is stored, logged, or sent to any third-party except Google Gemini for analysis.
+> Your data never leaves your session. Nothing is stored, logged, or sent to any third-party except Google Gemini for analysis.
 
 ---
 
 ## Live Demo
 
-[spendlens.vercel.app](https://spendlens.vercel.app) — or embedded in [Mithun's portfolio](https://mithun-portfolio.vercel.app)
+[spendlens.vercel.app](https://spendlens.vercel.app) — or embedded in [Mithun's portfolio](https://mithun-srinivasa.github.io)
 
 ---
 
@@ -77,7 +77,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 |---|---|---|
-| `GEMINI_API_KEY` | ✅ | Google Gemini API key from AI Studio |
+| `GEMINI_API_KEY` | Google Gemini API key from AI Studio |
 
 ---
 
@@ -115,12 +115,12 @@ src/
 
 ## Privacy
 
-- ❌ No database
-- ❌ No authentication  
-- ❌ No analytics that capture file content
-- ✅ Files are processed in-memory in a single API request
-- ✅ Results stored only in the browser's `sessionStorage`
-- ✅ Session is cleared when you navigate to a new analysis
+-  No database
+-  No authentication  
+-  No analytics that capture file content
+-  Files are processed in-memory in a single API request
+-  Results stored only in the browser's `sessionStorage`
+-  Session is cleared when you navigate to a new analysis
 
 ---
 
