@@ -17,7 +17,7 @@ Upload a CSV or PDF statement from HDFC, ICICI, SBI, Axis, or Kotak — and get 
 ## Features
 
 - **Drag-and-drop upload** — CSV or PDF, up to 5MB
-- **AI parsing** — Gemini 1.5 Flash categorizes every transaction automatically
+- **AI parsing** — Gemini 2.5 Flash categorizes every transaction automatically
 - **Spending pie chart** — Category breakdown with warm editorial color palette
 - **Monthly bar chart** — Spent vs credited, month by month
 - **AI Insights** — Anomaly detection, pattern recognition, savings tips
