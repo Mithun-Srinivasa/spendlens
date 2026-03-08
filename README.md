@@ -35,7 +35,7 @@ Upload a CSV or PDF statement from HDFC, ICICI, SBI, Axis, or Kotak — and get 
 | Framework | Next.js 14 (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS v4 |
-| AI | Google Gemini API (`gemini-1.5-flash`) |
+| AI | Google Gemini API (`gemini-2.5-flash-lite`) |
 | Charts | Recharts |
 | Upload | react-dropzone |
 | Icons | lucide-react |
